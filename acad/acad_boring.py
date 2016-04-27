@@ -24,9 +24,16 @@ def write_upper_section(upper_coordinates_mm):
             f.write('%g,%g' % xy)
             f.write(' ')
         f.write('c\n')
-        f.write('hatch k ')
-        f.write('%g,%g' % (xy[0] - 0.1, xy[0] + 0.1,))
+        # hatch_upper(f, upper_coordinates_mm)
         f.close()
+
+
+def hatch_upper(f, upper_coordinates_mm):
+    f.write('hatch ANSI31 10 0 ')
+    f.write('%g,%g' % (0 - 0.1, 0 - 0.1))
+    f.write(' ')
+    f.write('%g,%g' % (upper_coordinates_mm[0][0] + 0.1, upper_coordinates_mm[0][1] + 0.1))
+    f.write(' \n')
 
 
 def build_upper_coordinates(inner_radius_mm, length_mm, outer_radius_mm, section_lengths_mm):
