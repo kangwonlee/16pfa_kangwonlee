@@ -34,9 +34,8 @@ def write_upper_section(f, upper_coordinates_mm):
 
 
 def hatch_upper(f, upper_coordinates_mm):
-    f.write('-Hatch P S A H Y I Y')
-    #    f.write('%g,%g ' % (-1, -1))
-    #    f.write('%g,%g ' % (upper_coordinates_mm[0][0] + 1, upper_coordinates_mm[0][1] + 1))
+    f.write('-Hatch ')
+    f.write('%g,%g ' % (upper_coordinates_mm[0][0] - 1, upper_coordinates_mm[0][1] - 1))
     f.write('\n')
 
 
