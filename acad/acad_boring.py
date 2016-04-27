@@ -2,22 +2,21 @@ def main():
     outer_diameter_mm = 50
     inner_diameters_mm = (40, 20, 30, 20, 10)
     stage_lengths_mm = (15, 20, 15, 20, 30)
-    length_mm = sum(stage_lengths_mm)
+    hollow_axle(outer_diameter_mm, inner_diameters_mm, stage_lengths_mm)
 
+
+def hollow_axle(outer_diameter_mm, inner_diameters_mm, stage_lengths_mm):
+    length_mm = sum(stage_lengths_mm)
     outer_radius_mm = outer_diameter_mm * 0.5
     inner_radius_mm = []
     for di_mm in inner_diameters_mm:
         inner_radius_mm.append(di_mm * 0.5)
-
     upper_coordinates_mm = build_upper_coordinates(inner_radius_mm, length_mm, outer_radius_mm, stage_lengths_mm)
-
     print upper_coordinates_mm
-
     lower_coordinates_mm = []
     for xy in upper_coordinates_mm:
         lower_coordinates_mm.append((xy[0], -xy[1]))
-
-    with open('boring.scr', 'a') as f:
+    with open('boring.scr', 'w') as f:
         write_upper_section(f, upper_coordinates_mm)
         write_upper_section(f, lower_coordinates_mm)
         f.write('z e\n')
