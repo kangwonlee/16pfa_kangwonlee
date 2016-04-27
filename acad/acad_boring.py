@@ -34,9 +34,10 @@ def write_upper_section(f, upper_coordinates_mm):
 
 
 def hatch_upper(f, upper_coordinates_mm):
-    f.write('hatch ? ANSI31 10 0 k ')
-    f.write('%g,%g' % (upper_coordinates_mm[-1][0] - 0.1, upper_coordinates_mm[-1][1] + 0.1))
-    f.write(' \n')
+    f.write('hatch ANSI31 10 0 ')
+    f.write('%g,%g ' % (0,0))
+    f.write('%g,%g ' % upper_coordinates_mm[0])
+    f.write('\n')
 
 
 def build_lower_coordinates(inner_radius_mm, length_mm, outer_radius_mm, section_lengths_mm):
