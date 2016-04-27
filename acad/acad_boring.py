@@ -13,11 +13,18 @@ def main():
 
     print upper_coordinates_mm
 
-    write_upper_section(upper_coordinates_mm)
+    lower_coordinates_mm = []
+    for xy in upper_coordinates_mm:
+        lower_coordinates_mm.append((xy[0], -xy[1]))
+
+    with open('boring.scr', 'a') as f:
+        write_upper_section(f, upper_coordinates_mm)
+        write_upper_section(f, lower_coordinates_mm)
+        f.write('z e\n')
+        f.close()
 
 
-def write_upper_section(upper_coordinates_mm):
-    with open('boring.scr', 'w') as f:
+def write_upper_section(f, upper_coordinates_mm):
         f.write('line')
         f.write(' ')
         for xy in upper_coordinates_mm:
@@ -25,7 +32,6 @@ def write_upper_section(upper_coordinates_mm):
             f.write(' ')
         f.write('c\n')
         # hatch_upper(f, upper_coordinates_mm)
-        f.close()
 
 
 def hatch_upper(f, upper_coordinates_mm):
@@ -34,6 +40,18 @@ def hatch_upper(f, upper_coordinates_mm):
     f.write(' ')
     f.write('%g,%g' % (upper_coordinates_mm[0][0] + 0.1, upper_coordinates_mm[0][1] + 0.1))
     f.write(' \n')
+
+
+def build_lower_coordinates(inner_radius_mm, length_mm, outer_radius_mm, section_lengths_mm):
+    lower_coordinates_mm = [(length_mm, -outer_radius_mm),
+                            (0.0, outer_radius_mm),
+                            ]
+    x = 0.0
+    for ri_mm, section_length_mm in zip(inner_radius_mm, section_lengths_mm):
+        lower_coordinates_mm.append((x, ri_mm))
+        x += section_length_mm
+        lower_coordinates_mm.append((x, ri_mm))
+    return lower_coordinates_mm
 
 
 def build_upper_coordinates(inner_radius_mm, length_mm, outer_radius_mm, section_lengths_mm):
