@@ -18,6 +18,7 @@ def hollow_axle(outer_diameter_mm, inner_diameters_mm, stage_lengths_mm):
         lower_coordinates_mm.append((xy[0], -xy[1]))
     with open('boring.scr', 'w') as f:
         write_upper_section(f, upper_coordinates_mm)
+        hatch_upper(f, upper_coordinates_mm)
         write_upper_section(f, lower_coordinates_mm)
         f.write('zoom e\n')
         f.close()
@@ -30,14 +31,11 @@ def write_upper_section(f, upper_coordinates_mm):
             f.write('%g,%g' % xy)
             f.write(' ')
         f.write('c\n')
-        # hatch_upper(f, upper_coordinates_mm)
 
 
 def hatch_upper(f, upper_coordinates_mm):
-    f.write('hatch ANSI31 10 0 ')
-    f.write('%g,%g' % (0 - 0.1, 0 - 0.1))
-    f.write(' ')
-    f.write('%g,%g' % (upper_coordinates_mm[0][0] + 0.1, upper_coordinates_mm[0][1] + 0.1))
+    f.write('hatch ANSI31 10 0 k ')
+    f.write('%g,%g' % (upper_coordinates_mm[-1][0] - 0.1, upper_coordinates_mm[-1][1] + 0.1))
     f.write(' \n')
 
 
