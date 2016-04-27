@@ -19,7 +19,7 @@ def hollow_axle(outer_diameter_mm, inner_diameters_mm, stage_lengths_mm):
     with open('boring.scr', 'w') as f:
         write_upper_section(f, upper_coordinates_mm)
         write_upper_section(f, lower_coordinates_mm)
-        f.write('z e\n')
+        f.write('zoom e\n')
         f.close()
 
 
