@@ -7,7 +7,7 @@
 
 대신
 
-짝수이면서 4백만 이하인 가장 큰 항은 얼마가 됩니까?
+4백만 이상인 최초의 항은 몇번째 얼마가 됩니까?
 
 * Recursion 재귀함수 를 이용해 볼 수 있겠습니까?
 def factorial(n):
@@ -19,6 +19,7 @@ else:
 print(factorial(5))
 """
 import sys
+
 
 def fibonacci(n):
     if 2 == n:
@@ -36,13 +37,10 @@ def main():
         print("Fibonacci(%d) = %d" % (i, fibonacci(i)))
 
     i = 11
-    list_f = []
     while True:
         f = fibonacci(i)
-        if 0 == (f % 2):
-            list_f.append([i, f])
         if f > 4000000:
-            print(list_f[-1])
+            print("Fibonacci(%d) = %d" % (i, f))
             sys.exit(0)
         i += 1
 
