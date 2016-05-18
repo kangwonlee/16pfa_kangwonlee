@@ -20,6 +20,25 @@ print(factorial(5))
 """
 
 
+def fibonacci(n):
+    if 2 == n:
+        return 2
+    elif 1 == n:
+        return 1
+    elif 0 >= n:
+        return 0
+    else:
+        return fibonacci(n - 2) + fibonacci(n - 1)
+
+
+def main():
+    for i in range(1, 10 + 1):
+        print("Fibonacci(%d) = %d" % (i, fibonacci(i)))
+
+
+if __name__ == '__main__':
+    main()
+
 # 프로그램 작성 후 add, commit
 
 # 각 행 주석 입력 후 commit
