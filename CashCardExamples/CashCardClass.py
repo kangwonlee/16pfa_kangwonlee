@@ -46,7 +46,7 @@ class SimpleCashCard:
 
 # 아래의 내용은 이 파일이 import 될 때는 실행되지 않음
 if "__main__" == __name__:
-    # Cash Card User 모듈의 msg_int 함수를 사용할 수 있게 함
+    # 모듈 실습 함수를 하나 사용할 수 있게 함
     from CashCard_user import chk_bal
 
     # myCard 객체를 SimpleCashCard 클래스에 정한 대로 만듦
