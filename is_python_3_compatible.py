@@ -61,3 +61,12 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# TODO : rename tags
+'''
+# http://stackoverflow.com/questions/1028649/how-do-you-rename-a-git-tag
+git tag new old
+git tag -d old
+git push origin :refs/tags/old
+git push --tags
+'''
