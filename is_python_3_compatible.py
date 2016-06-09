@@ -10,25 +10,22 @@ def python3():
     return arg0
 
 
-'''
-ex11.py needs input
-ex12.py needs input
-ex13.py needs argv
-ex14.py needs argv
-ex14.py needs input
-ex15.py needs argv
-ex15.py needs input
-ex16.py needs argv
-ex16.py needs input
-ex17.py needs argv
-ex20.py needs argv
-ex31.py needs input
-ex35.py needs input
-ex41.py needs input
-'''
+need_input = {'ex11.py': {'input': []},
+              'ex12.py': {'input': []},
+              'ex13.py': {'argv': []},
+              'ex14.py': {'argv': [], 'input': []},
+              'ex15.py': {'argv': [], 'input': []},
+              'ex16.py': {'argv': [], 'input': []},
+              'ex17.py': {'argv': []},
+              'ex20.py': {'argv': []},
+              'ex31.py': {'input': []},
+              'ex35.py': {'input': []},
+              'ex41.py': {'input': []},
+              }
 
 
 def process_py_file(filename):
+    i
     try:
         subprocess.call('%s %s' % (python3(), filename), shell=True)
     except:
