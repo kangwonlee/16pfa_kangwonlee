@@ -21,9 +21,20 @@ def process_py_file(filename):
 
     patterns = {'argv': 'import argv', 'input': 'raw_input'}
 
+    result = "'%s': {" % filename
+
+    b_OR = False
     for key, signature in patterns.items():
         if signature in txt:
-            print("%s needs %s" % (filename, key))
+            b_OR = True
+            # print("%s needs %s" % (filename, key))
+            result += "'%s':[]," % key
+
+    if b_OR:
+        result += '},'
+        print(result)
+
+
 
 
 def process_folder(folder_name):
