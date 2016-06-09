@@ -110,7 +110,7 @@ def list(aMap):
     for bucket in aMap:
         if bucket:
             for k, v in bucket:
-                print k, v
+                print('%s, %s' % (str(k), str(v)))
 
 # 입력 후 add, commit  # 각 행 주석 입력 후 commit
 
