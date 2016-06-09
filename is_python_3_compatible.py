@@ -27,7 +27,7 @@ need_input = {'ex11.py': {'input': []},
 
 def process_py_file(filename):
     if filename in need_input:
-        print("%s needs inputs" % filename)
+        print("*** %s needs %s" % (filename, need_input[filename].keys()))
     else:
         try:
             subprocess.call('%s %s' % (python3(), filename), shell=True)
