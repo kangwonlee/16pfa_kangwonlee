@@ -11,6 +11,7 @@ def python3():
 
 
 need_input = {'ex11.py': {'input': []},
+              'ex11_python3.py': {'input': []},
               'ex12.py': {'input': []},
               'ex13.py': {'argv': []},
               'ex14.py': {'argv': [], 'input': []},
@@ -25,13 +26,15 @@ need_input = {'ex11.py': {'input': []},
 
 
 def process_py_file(filename):
-    i
-    try:
-        subprocess.call('%s %s' % (python3(), filename), shell=True)
-    except:
-        print("%s failed" % filename)
+    if filename in need_input:
+        print("%s needs inputs" % filename)
     else:
-        print("success %s" % filename)
+        try:
+            subprocess.call('%s %s' % (python3(), filename), shell=True)
+        except:
+            print("%s failed" % filename)
+        else:
+            print("success %s" % filename)
 
 
 def process_folder(folder_name):
