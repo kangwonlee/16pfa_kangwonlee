@@ -33,8 +33,6 @@ def process_py_file(filename):
             subprocess.call('%s %s' % (python3(), filename), shell=True)
         except:
             print("%s failed" % filename)
-        else:
-            print("success %s" % filename)
 
 
 def process_folder(folder_name):
