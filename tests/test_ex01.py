@@ -22,8 +22,12 @@ def test_all_scripts_recursively():
 def process_python_script(file_name, full_path):
     script_full_path = os.path.join(full_path, file_name)
     print(script_full_path)
-    with open(script_full_path, 'rt', encoding='utf8') as input_file:
-        script_text = input_file.read()
+    try:
+        with open(script_full_path, 'rt') as input_file:
+            script_text = input_file.read()
+    except UnicodeDecodeError as e:
+        with open(script_full_path, 'rt', encoding='utf8') as input_file:
+            script_text = input_file.read()
 
     # skip if
     if 'argv' not in script_text:
