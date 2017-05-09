@@ -3,4 +3,4 @@ python:
   - "3.5"
 install: true
 script:
-  - python tests/test_samples.py
+  - python tests/test_run.py
