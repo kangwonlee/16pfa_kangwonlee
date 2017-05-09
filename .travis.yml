@@ -5,4 +5,5 @@ python:
 install: true
 script:
   - python ex01_print/ex01.py
+  - python tests/test_ex01.py
   - python ex47_nose_tests/ex47_nose_tests.py
