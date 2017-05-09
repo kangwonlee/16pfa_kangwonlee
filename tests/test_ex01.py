@@ -30,7 +30,7 @@ def process_python_script(file_name, full_path):
             script_text = input_file.read()
 
     # skip if
-    if 'argv' not in script_text:
+    if ('argv' not in script_text) and ('input' not in script_text):
         completed_process = subprocess.run(['python', script_full_path], stdout=subprocess.PIPE)
         nt.assert_equal(0, completed_process.returncode, msg=script_full_path)
         # true if script output is not empty or print is not in script
