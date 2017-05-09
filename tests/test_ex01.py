@@ -7,12 +7,12 @@ import nose
 
 
 def test_ex01_success():
-    completed_process = subprocess.run(['python', os.path.join(os.pardir, 'ex01_print', 'ex01.py')], stdout=subprocess.PIPE)
+    completed_process = subprocess.run(['python', os.path.join('ex01_print', 'ex01.py')], stdout=subprocess.PIPE)
     assert_true(completed_process)
 
 
 def test_ex01_fail():
-    completed_process = subprocess.run(['python', os.path.join(os.pardir, 'ex01_print', 'ex01.py')], stdout=subprocess.PIPE)
+    completed_process = subprocess.run(['python', os.path.join('ex01_print', 'ex01.py')], stdout=subprocess.PIPE)
     assert_false(completed_process)
 
 
