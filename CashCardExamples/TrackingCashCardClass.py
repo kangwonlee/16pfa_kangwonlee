@@ -11,7 +11,7 @@ class HistoryCashCard(SafeCashCard):
     """  # <- docstring
 
     def __init__(self):
-        print "HistoryCashCard __init__()"
+        print("HistoryCashCard __init__()")
         # HistoryCashCard 클래스의 객체는 사용 내역을 담을
         # 별도의 멤버 변수가 필요함. 이 변수를 준비하려면
         # HistoryCashCard 클래스의 생성자가 필요함
@@ -29,7 +29,7 @@ class HistoryCashCard(SafeCashCard):
         HistoryCashCard deposit method
         deposit amount & add record to history
         """  # <- docstring
-        print "HistoryCashCard deposit()"
+        print("HistoryCashCard deposit()")
         # 입금 기능 자체는 상위 클래스에 이미 정해진 바를 따른다
         SafeCashCard.deposit(self, amount_won)
         # 또는
@@ -44,7 +44,7 @@ class HistoryCashCard(SafeCashCard):
         HistoryCashCard withdraw method
         withdraw amount & add record to history
         """  # <- docstring
-        print "HistoryCashCard withdraw()"
+        print("HistoryCashCard withdraw()")
         # 출금 기능 자체는 역시 상위 클래스를 따름
         SafeCashCard.withdraw(self, amount_won)
 
@@ -65,7 +65,7 @@ class HistoryCashCard(SafeCashCard):
         HistoryCashCard show_history method
         show appended history
         """  # <- docstring
-        print "HistoryCashCard show_history()"  # 함수 호출 표식
+        print("HistoryCashCard show_history()")  # 함수 호출 표식
 
         # 지금 까지 멤버 변수 self.history에 모인
         # 사용 내역을 하나씩 출력함
