@@ -18,13 +18,16 @@ def test_all_scripts_recursively():
                 if file_name.endswith('.py'):
                     script_full_path = os.path.join(full_path, file_name)
                     print(script_full_path)
-                    with open(script_full_path, 'rt') as input_file:
+                    with open(script_full_path, 'rt', encoding='utf8') as input_file:
                         script_text = input_file.read()
 
-                    completed_process = subprocess.run(['python', script_full_path], stdout=subprocess.PIPE)
-                    nt.assert_equal(0, completed_process.returncode, msg=script_full_path)
-                    # true if script output is not empty or print is not in script
-                    nt.assert_true(completed_process.stdout or ('print' not in script_text), msg=script_full_path)
+                    # skip if
+                    if 'argv' not in script_text:
+
+                        completed_process = subprocess.run(['python', script_full_path], stdout=subprocess.PIPE)
+                        nt.assert_equal(0, completed_process.returncode, msg=script_full_path)
+                        # true if script output is not empty or print is not in script
+                        nt.assert_true(completed_process.stdout or ('print' not in script_text), msg=script_full_path)
 
 
 if __name__ == '__main__':
