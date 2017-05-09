@@ -98,7 +98,6 @@ def test_ex24():
 def test_ex25():
     completed_process = subprocess.run(['python', os.path.join('ex25_module', 'ex25.py')], stdout=subprocess.PIPE)
     nt.assert_equal(0, completed_process.returncode)
-    nt.assert_true(completed_process.stdout)
 
 
 def test_run_ex25():
@@ -174,7 +173,6 @@ def test_hashmap():
     completed_process = subprocess.run(['python', os.path.join('ex39_dict_hashmap', 'hashmap.py')],
                                        stdout=subprocess.PIPE)
     nt.assert_equal(0, completed_process.returncode)
-    nt.assert_true(completed_process.stdout)
 
 
 def test_ex40():
@@ -188,20 +186,11 @@ def test_mystuff():
     completed_process = subprocess.run(['python', os.path.join('ex40_dict_module_class', 'mystuff.py')],
                                        stdout=subprocess.PIPE)
     nt.assert_equal(0, completed_process.returncode)
-    nt.assert_true(completed_process.stdout)
-
-
-def test_ex47_nose_tests():
-    completed_process = subprocess.run(['python', os.path.join('ex47_nose_tests', 'ex47_nose_tests.py')],
-                                       stdout=subprocess.PIPE)
-    nt.assert_equal(0, completed_process.returncode)
-    nt.assert_true(completed_process.stdout)
 
 
 def test_game():
     completed_process = subprocess.run(['python', os.path.join('ex47_nose_tests', 'game.py')], stdout=subprocess.PIPE)
     nt.assert_equal(0, completed_process.returncode)
-    nt.assert_true(completed_process.stdout)
 
 
 if __name__ == '__main__':
