@@ -3,5 +3,4 @@ python:
   - "3.5"
 install: true
 script:
-  - python ex01_print/ex01.py
-  - python tests/test_ex01.py
+  - python tests/test_samples.py
