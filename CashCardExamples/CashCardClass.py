@@ -6,7 +6,7 @@ class SimpleCashCard:
     """
 
     def __init__(self):
-        print "SimpleCashCard __init__()"  # 함수 호출 표식
+        print("SimpleCashCard __init__()")  # 함수 호출 표식
         # 클래스 생성자 (컨스터럭터)
         # 멤버 변수 초기화
         # 각 카드 별로 따로 잔고를 기록한다
@@ -19,7 +19,7 @@ class SimpleCashCard:
         :param amount_won: 임금 액수
         :return:
         """
-        print "SimpleCashCard deposit()"  # 함수 호출 표식
+        print("SimpleCashCard deposit()")  # 함수 호출 표식
         # 입금하면 잔고가 증가한다
         self.balance_won += amount_won
 
@@ -29,7 +29,7 @@ class SimpleCashCard:
         :param amount_won: 출금 액수
         :return:
         """
-        print "SimpleCashCard withdraw()"  # 함수 호출 표식
+        print("SimpleCashCard withdraw()")  # 함수 호출 표식
         # 출금하면 잔고가 감소한다
         self.balance_won += (-amount_won)
 
@@ -38,7 +38,7 @@ class SimpleCashCard:
         잔고조회
         :return:
         """
-        print "SimpleCashCard check_balance()"  # 함수 호출 표식
+        print("SimpleCashCard check_balance()")  # 함수 호출 표식
         # 통장 잔고를 반환한다
         return self.balance_won
 # SimpleCashCard 클래스 정의 끝
